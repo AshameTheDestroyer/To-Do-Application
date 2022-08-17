@@ -1,0 +1,196 @@
+* {
+    font-family: 'Segoe UI Semibold';
+}
+body {
+    font-size: 2rem;
+    max-height: 100vh;
+    margin: 0px;
+}
+
+.to_do_card {
+    position: relative;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 1vh;
+    display: grid;
+    margin: 5px;
+    width: fit-content;
+    max-width: 350px;
+    word-break: break-all;
+    grid-template-columns: 1fr repeat(2, auto);
+}
+.to_do_card .to_do_button,
+.to_do_list .list_header .delete_button {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: white;
+    border: 0;
+    background-position: 0;
+    background-size: cover;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.to_do_card .to_do_button:focus,
+.to_do_list .list_header .delete_button {
+    transform: scale(1.1) translateY(-55%);
+    top: 55%;
+}
+.to_do_card .to_do_button.toggle {
+    --checked-logo: url('./Icons/checked.png');
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+.to_do_card .to_do_button.delete,
+.to_do_list .list_header .delete_button {
+    background-image: url('./Icons/delete.png');
+}
+
+.to_do_list {
+    border: 2px solid black;
+    border-radius: 1vh;
+    padding: 5px;
+    width: fit-content;
+    margin: 10px;
+}
+.to_do_list .list_label {
+    text-align: center;
+}
+.to_do_list .list_header {
+    position: relative;
+    direction: rtl;
+}
+.to_do_list .list_header .delete_button {
+    position: absolute;
+}
+.to_do_list .list_header .delete_button:focus {
+    transform: scale(1.2) translateY(-57.5%);
+}
+
+.to_do_list .counters {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+.to_do_list .counters > abbr {
+    display: flex;
+    place-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor: default;
+}
+.to_do_list .counters .icon {
+    position: relative;
+    background-size: cover;
+    top: 50%;
+    transform: translateY(calc(-50% - 5px));
+    width: 25x;
+    height: 25px;
+    margin: 5px;
+}
+.to_do_list .counters .all_counter .icon {
+    content: url('./Icons/all_to_dos.png');
+}
+.to_do_list .counters .completed_counter .icon {
+    content: url('./Icons/completed_to_dos.png');
+}
+.to_do_list .counters .invisible_counter .icon {
+    content: url('./Icons/invisible_to_dos.png');
+}
+
+.to_do_list .wrapper {
+    --height: '100px';
+    height: var(--height);
+    overflow-y: auto;
+}
+.to_do_list .wrapper .to_do_card {
+    width: auto;
+}
+
+.to_do_list .wrapper::-webkit-scrollbar {
+    width: 1rem;
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+.to_do_list .wrapper::-webkit-scrollbar-track {
+    background: lightgray;
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+.to_do_list .wrapper::-webkit-scrollbar-thumb {
+    background-color: #0000007f;
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+
+.to_do_list .buttons {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+.to_do_list .buttons button,
+.lists_buttons button {
+    --enabled: white;
+    --disabled: gray;
+    border: 2px solid black;
+    border-radius: 1vh;
+    background-color: var(--enabled);
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.to_do_list .buttons button:focus,
+.lists_buttons button:focus {
+    transform: scale(1.05);
+}
+.to_do_list .buttons button.disabled,
+.lists_buttons button.disabled {
+    background-color: var(--disabled);
+    cursor: default;
+}
+
+.to_do_list .buttons .show_all_button {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, auto);
+}
+.to_do_list .buttons .show_all_button .show_all_button_icon {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-radius: 100vh;
+    margin-right: 5px;
+}
+.to_do_list .buttons input,
+.lists_buttons input {
+    border: 2px solid black;
+    border-radius: 1vh;
+    background-color: white;
+    padding: 5px;
+}
+
+.lists_buttons {
+    border: 2px solid black;
+    border-radius: 1vh;
+    margin: 10px;
+    padding: 5px;
+}
+
+.lists_section {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    place-content: center center;
+    place-items: end;
+}
+
+.lists_section .to_do_list {
+    height: fit-content;
+}
